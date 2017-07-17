@@ -14,7 +14,7 @@ export class AppComponent {
   outputString: string;
 
   constructor() {
-    this.password = '919';
+    this.password = '88888888';
     this.inputString = 'MehdiPayervand';
   }
 
@@ -29,11 +29,11 @@ export class AppComponent {
   }
 
   private _encrypt(body: string, password: string) {
-    var key =  CryptoJS.enc.Utf8.parse('7061737323313233');
-    var iv = CryptoJS.enc.Utf8.parse('7061737323313233');
+    var key =  CryptoJS.enc.Utf8.parse(password);
+    var iv = CryptoJS.enc.Utf8.parse(password);
     var encrypted = CryptoJS.AES.encrypt(CryptoJS.enc.Utf8.parse(body), key,
       {
-        keySize: 128 / 8,
+        keySize:this.password.length,
         iv: iv,
         mode: CryptoJS.mode.CBC,
         padding: CryptoJS.pad.Pkcs7
@@ -45,11 +45,11 @@ export class AppComponent {
   private _decrypt(encrypted: string, password: string) {
     debugger;
 
-    var key =  CryptoJS.enc.Utf8.parse('7061737323313233');
-    var iv = CryptoJS.enc.Utf8.parse('7061737323313233');
+    var key =  CryptoJS.enc.Utf8.parse(password);
+    var iv = CryptoJS.enc.Utf8.parse(password);
 
     var decrypted = CryptoJS.AES.decrypt(encrypted, key, {
-      keySize: 128 / 8,
+      keySize: this.password.length,
       iv: iv,
       mode: CryptoJS.mode.CBC,
       padding: CryptoJS.pad.Pkcs7
