@@ -29,7 +29,7 @@ export class AppComponent {
   }
 
   private _encrypt(body: string, password: string) {
-    var key = CryptoJS.enc.Utf8.parse(password);
+    var key =  CryptoJS.enc.Utf8.parse('7061737323313233');
     var iv = CryptoJS.enc.Utf8.parse('7061737323313233');
     var encrypted = CryptoJS.AES.encrypt(CryptoJS.enc.Utf8.parse(body), key,
       {
@@ -45,20 +45,10 @@ export class AppComponent {
   private _decrypt(encrypted: string, password: string) {
     debugger;
 
-      encrypted = atob(encrypted);
-
-    var key = CryptoJS.enc.Utf8.parse(password);
+    var key =  CryptoJS.enc.Utf8.parse('7061737323313233');
     var iv = CryptoJS.enc.Utf8.parse('7061737323313233');
 
-    var encryptedd = CryptoJS.AES.encrypt(encrypted, key, {
-      keySize: 128 / 8,
-      iv: iv,
-      mode: CryptoJS.mode.CBC,
-      padding: CryptoJS.pad.Pkcs7
-    });
-
-
-    var decrypted = CryptoJS.AES.decrypt(encryptedd, key, {
+    var decrypted = CryptoJS.AES.decrypt(encrypted, key, {
       keySize: 128 / 8,
       iv: iv,
       mode: CryptoJS.mode.CBC,
