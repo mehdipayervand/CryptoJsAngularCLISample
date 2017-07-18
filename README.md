@@ -1,4 +1,4 @@
-A sample to Use CyptoJs [a link](https://www.npmjs.com/package/crypto-js) in AngularCli
+A sample to Use  [CyptoJs](https://www.npmjs.com/package/crypto-js) in AngularCli
 
 How to run it
 -------------
